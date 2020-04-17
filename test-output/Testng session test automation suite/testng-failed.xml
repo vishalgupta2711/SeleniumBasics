@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Testng session test automation suite]">
+  <test thread-count="5" name="Different testng feature test(failed)">
+    <classes>
+      <class name="com.test.GoogleTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="googleTitleTest"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.test.GoogleTest -->
+      <class name="com.test.TestNgFeatures">
+        <methods>
+          <include name="regPageTest"/>
+          <include name="searchPageTest"/>
+          <include name="loginTest"/>
+          <include name="homePageTest"/>
+        </methods>
+      </class> <!-- com.test.TestNgFeatures -->
+    </classes>
+  </test> <!-- Different testng feature test(failed) -->
+</suite> <!-- Failed suite [Testng session test automation suite] -->
