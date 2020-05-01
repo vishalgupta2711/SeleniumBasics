@@ -14,10 +14,15 @@ public class AlertPopUpHandle {
 		System.setProperty("webdriver.chrome.driver","F:\\Drivers\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
+				
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
 		driver.findElement(By.name("proceed")).click();
-		
-		
 		
 		Thread.sleep(5000);
 		
@@ -26,12 +31,7 @@ public class AlertPopUpHandle {
 		alert.accept();
 		
 		//alert.dismiss();// this is used to cancel the alert
-		
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
 		
 		System.out.println("program reached end successfully");
 		
