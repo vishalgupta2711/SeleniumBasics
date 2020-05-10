@@ -32,6 +32,8 @@ public class JavaScriptExecutorConcept {
 		
 		generateAlert(driver,"There is an issue with login button in the login page");
 		//driver.quit();
+		
+		clickElementByJS(loginBtn,driver);
 	}
 
 	public static void flash(WebElement element, WebDriver driver) {
@@ -62,6 +64,11 @@ public class JavaScriptExecutorConcept {
 		
 		JavascriptExecutor js =  (JavascriptExecutor) driver;
 		js.executeScript("alert('"+message+"')");
+	}
+	
+	public static void clickElementByJS(WebElement element , WebDriver driver) {
+		JavascriptExecutor js =  (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",element );
 	}
 		
 }

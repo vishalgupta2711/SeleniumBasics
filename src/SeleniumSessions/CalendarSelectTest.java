@@ -1,5 +1,6 @@
 package SeleniumSessions;
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -21,23 +22,60 @@ public class CalendarSelectTest {
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-		driver.get("http://demo.guru99.com/V4/");
+		driver.get("https://www.makemytrip.com/");
 		
-		driver.findElement(By.xpath("//input[@name = 'uid']")).sendKeys("mngr256562");
-		driver.findElement(By.xpath("//input[@name = 'password']")).sendKeys("gAdurYp");
-		driver.findElement(By.xpath("//input[@name = 'btnLogin']")).click();
+		driver.findElement(By.xpath("//div[@class = 'fsw_inputBox dates inactiveWidget ']")).click();
 		
-		driver.findElement(By.xpath("//a[contains(text(),'New Customer')]")).click();
-			
-		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(By.xpath("//*[@id=\"dob\"]"))).build().perform();
+		String date = "10-Jun-2020";
+		String dateArr[] = date.split("-");
+		String day = dateArr[0];
+		String month = dateArr[1];
+		String year = dateArr[2];/*
 		
+		String beforeXpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/div/div/div/div[2]/div/div[2]/div[2]/div[3]/div[";
+		String afterXpath = "]/div["; 
 		
-		System.out.println("program reached end successfully");
+		int totalWeekDays = 7;
 		
-		driver.quit();
+		for(int rowNum = 1 ; rowNum <=6 ; rowNum++) {
+			for(int colNum = 2 ; colNum<= totalWeekDays ; colNum++) {
+				String dayVal = driver.findElement(By.xpath(beforeXpath+rowNum+afterXpath+colNum+"]/div")).getText();
+				System.out.println(dayVal);
+			}
+		}*/
+		String beforeXpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[3]/div[1]/div/div/div/div[2]/div/div[2]/div[2]/div[3]/div[";
+		String afterXpath =  "]/div[";
+		
+		int totalWeekDays = 7;
+		boolean flag = false;
+		String dayVal = null;
+		for(int rowNum = 1 ; rowNum <=6 ; rowNum++) {
+			for(int colNum = 1 ; colNum<= totalWeekDays ; colNum++) {
+				try 
+				{
+					dayVal = driver.findElement(By.xpath(beforeXpath+rowNum+afterXpath+colNum+"]")).getText();
+				}
+				catch(NoSuchElementException e) 
+				{
+					System.out.println("Please enter the correct date value :");
+					flag = false;
+					break;
+				}
+				System.out.println(dayVal);
+				if(dayVal.contains(day)) {
+					driver.findElement(By.xpath(beforeXpath+rowNum+afterXpath+colNum+"]")).click();
+					flag = true;
+					break;
+				}
+			}
+			if(flag) {
+				break;
+			}
+		}
+
+		//driver.quit();
 		// TODO Auto-generated method stub
 
 	}
-
-}
+	}
+	

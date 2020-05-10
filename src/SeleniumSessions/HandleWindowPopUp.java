@@ -18,7 +18,9 @@ public class HandleWindowPopUp {
 		driver.get("http://www.popuptest.com/");
 		driver.findElement(By.xpath("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[1]/font[3]/b/a")).click();
 		Thread.sleep(2000);
-		
+		/*driver.getWindowHandles();
+		driver.getWindowHandle();
+		*/
 		Set <String> handler = driver.getWindowHandles();
 		Iterator <String> it = handler.iterator();
 		
