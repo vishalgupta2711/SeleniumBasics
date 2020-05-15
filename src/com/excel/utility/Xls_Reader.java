@@ -12,6 +12,8 @@ import java.io.FileOutputStream;
 import java.util.Calendar;
 
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFCreationHelper;
@@ -362,7 +364,9 @@ public class Xls_Reader {
 				return false;
 
 			XSSFCellStyle style = workbook.createCellStyle();
-			// style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
+			 style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.BRIGHT_GREEN.getIndex());
+			 style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			//style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
 			// style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 
 			sheet = workbook.getSheetAt(index);

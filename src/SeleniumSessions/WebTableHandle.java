@@ -46,6 +46,8 @@ public class WebTableHandle {
 		}
 		
 		for(int i = 2 ; i<=rowCount ; i++) {
+			
+			//xpath for Company Name column
 			String actualXpath_Company = beforeXpath_Company+i+afterXpath_Company;
 			System.out.println(actualXpath_Company);
 			String companyName = driver.findElement(By.xpath(actualXpath_Company)).getText();
@@ -53,6 +55,7 @@ public class WebTableHandle {
 			
 			reader.setCellData("TableData", "Company Name", i, companyName);
 			
+			//xpath for Contact Name column
 			String actualXpath_Contact = beforeXpath_Contact+i+afterXpath_Contact;
 			System.out.println(actualXpath_Contact);
 			String contactName = driver.findElement(By.xpath(actualXpath_Contact)).getText();
