@@ -17,6 +17,7 @@ public class WebTableHandle {
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("https://www.w3schools.com/html/html_tables.asp");
+			
 		
 		//*[@id="customers"]/tbody/tr[2]/td[1]
 		//*[@id="customers"]/tbody/tr[3]/td[1]
@@ -38,7 +39,7 @@ public class WebTableHandle {
 				+ "\\com\\testdata\\NewToursRegTestData.xlsx");
 		
 		
-		if(!reader.isSheetExist("TableData")) {
+		if(!reader.isSheetExist("TableData")) { // if sheet(TableData) is not existing then create a new sheet
 			
 			reader.addSheet("TableData");
 			reader.addColumn("TableData", "Company Name");
@@ -50,6 +51,7 @@ public class WebTableHandle {
 			//xpath for Company Name column
 			String actualXpath_Company = beforeXpath_Company+i+afterXpath_Company;
 			System.out.println(actualXpath_Company);
+			
 			String companyName = driver.findElement(By.xpath(actualXpath_Company)).getText();
 			System.out.println(companyName);
 			
