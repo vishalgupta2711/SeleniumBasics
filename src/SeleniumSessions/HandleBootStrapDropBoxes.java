@@ -38,10 +38,7 @@ public class HandleBootStrapDropBoxes {
 			
 		}
 		
-		
-		driver.quit();
-
-
+		//driver.quit();
 	}
 
 }
