@@ -48,7 +48,7 @@ public class DropDownValuesValidation
 	@AfterMethod
 	public void tearDown() 
 	{
-		driver.quit();
+		//driver.quit();
 	}
 
 	public static List<String> dropDownValues(WebElement element) 
